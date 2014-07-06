@@ -1,10 +1,12 @@
 require.config({
 	"baseUrl": "content/themes/yeopress/js",
 	"paths": {
-		"jquery": "vendor/jquery/jquery"
+		"jquery": "vendor/jquery/jquery",
+        "backbone": "vendor/backbone/backbone"
 	}
 });
 
-require(['jquery'], function($) {
+require(['jquery', 'backbone'], function($, Backbone) {
 	console.log('Working!!');
+    console.log(Backbone);
 });
