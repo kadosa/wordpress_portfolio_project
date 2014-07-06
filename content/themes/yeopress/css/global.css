@@ -1,1 +1,47 @@
+.thumbContainer {
+    width: 180px;
+    height: 180px;
+    overflow: hidden;
+}
 
+.thumb {
+    -webkit-transition: -webkit-transform 0.4s ease-out;
+}
+
+.thumb:hover {
+    -webkit-transform: scale(1.6);
+}
+
+
+#page-content {
+    background: #000;
+}
+
+ul.rollover {
+    list-style: none;
+    color: #fff;
+    font-family: 'Helvetica Neue';
+    font-size: 18px;
+    line-height: 32px;
+    margin-top: 80px;
+}
+
+li {
+    -webkit-transition: all 0.2s cubic-bezier(0.215,.61,.355,1);
+}
+
+li.first {
+    -webkit-transition-delay: 0s;
+}
+
+li.second {
+    -webkit-transition-delay: 0.1s;
+}
+
+li.third {
+    -webkit-transition-delay: 0.3s;
+}
+
+ul.rollover:hover li {
+        -webkit-transform: translate(0px, -50px);
+}
