@@ -1,0 +1,20 @@
+.social-icon {
+    display: block;
+    width: $social_icon_size;
+    height: $social_icon_size;
+    line-height: $social_icon_size;
+    text-align: center;
+    background: $social_media_bg;
+
+    &:hover, &:active {
+        background: $social_media_active_bg;
+    }
+
+    img {
+        vertical-align: middle;
+    }
+}
+
+.icon {
+    cursor: pointer;
+}

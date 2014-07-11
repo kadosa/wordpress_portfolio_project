@@ -6,9 +6,24 @@ $theme_dir: '/content/themes/yeopress/';
 $images_dir: '/content/themes/yeopress/images/';
 
 /* Colors */
+$bg_color: #fff;
+$footer_bg_color: #1e1e1e;
 $color_body_copy: #444;
+$color_footer_copy: #fff;
 $color_link: #26527c;
 $color_opposite: #fff;
 
+$social_media_bg: #232323;
+$social_media_active_bg: #18e700;
+
+
+/* Page sizes and margins and paddings */
+
+$page_padding: 15%;
+$social_icon_size: 104px;
+
 /* Font Sizes */
-$size_base: 1em;
+$size_base: 1rem;
+
+
+

@@ -1,47 +1,569 @@
-.thumbContainer {
-    width: 180px;
-    height: 180px;
-    overflow: hidden;
+/* ==========================================================================
+	Imports
+/* ========================================================================== */
+/* ==========================================================================
+	Variables
+/* ========================================================================== */
+/* Directories */
+/* Colors */
+/* Page sizes and margins and paddings */
+/* Font Sizes */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section, article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
 }
 
-.thumb {
-    -webkit-transition: -webkit-transform 0.4s ease-out;
+audio,
+canvas,
+video {
+  display: inline-block;
 }
 
-.thumb:hover {
-    -webkit-transform: scale(1.6);
+audio:not([controls]) {
+  display: none;
+  height: 0;
 }
 
-
-#page-content {
-    background: #000;
+[hidden] {
+  display: none;
 }
 
-ul.rollover {
-    list-style: none;
-    color: #fff;
-    font-family: 'Helvetica Neue';
-    font-size: 18px;
-    line-height: 32px;
-    margin-top: 80px;
+abbr[title] {
+  border-bottom: 1px dotted;
 }
 
-li {
-    -webkit-transition: all 0.2s cubic-bezier(0.215,.61,.355,1);
+b,
+strong {
+  font-weight: bold;
 }
 
-li.first {
-    -webkit-transition-delay: 0s;
+blockquote {
+  margin: 1rem 2.5rem;
 }
 
-li.second {
-    -webkit-transition-delay: 0.1s;
+dfn {
+  font-style: italic;
 }
 
-li.third {
-    -webkit-transition-delay: 0.3s;
+mark {
+  background: white;
+  color: #444444;
 }
 
-ul.rollover:hover li {
-        -webkit-transform: translate(0px, -50px);
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1rem;
+}
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+q {
+  quotes: none;
+}
+
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5rem;
+}
+
+sub {
+  bottom: -0.25rem;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+figure {
+  margin: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
+}
+
+/* ==========================================================================
+	Print styles.
+	Inlined to avoid required HTTP connection: h5bp.com/r
+/* ========================================================================== */
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #444444;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 0.5cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+/* ==========================================================================
+	Variables
+/* ========================================================================== */
+/* Directories */
+/* Colors */
+/* Page sizes and margins and paddings */
+/* Font Sizes */
+.social-icon {
+  display: block;
+  width: 104px;
+  height: 104px;
+  line-height: 104px;
+  text-align: center;
+  background: #232323;
+}
+.social-icon:hover, .social-icon:active {
+  background: #18e700;
+}
+.social-icon img {
+  vertical-align: middle;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+/* ==========================================================================
+	Base
+/* ========================================================================== */
+html {
+  height: 100%;
+  font-size: 62.5%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+  font-family: Arial, sans-serif;
+  color: #444444;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  background: white;
+}
+
+/*	Apply to all elements. In a responsive design, this is almost always a good idea */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+	Links
+/* ========================================================================== */
+a {
+  color: #26527c;
+  text-decoration: underline;
+}
+
+a:focus,
+a:hover {
+  color: #08111a;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* ==========================================================================
+	Typography
+/* ========================================================================== */
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1rem;
+  line-height: 1.5rem;
+}
+
+h1 {
+  font-size: 4.5rem;
+  line-height: 133%;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2rem;
+  line-height: 150%;
+}
+
+h4 {
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+
+h5, h6 {
+  font-size: 1.1rem;
+}
+
+/* Content Block Elements */
+dl,
+menu,
+ol,
+ul,
+p,
+pre {
+  margin: 0 0 1rem;
+}
+
+/* Paragraphs */
+p {
+  font-size: 2rem;
+}
+
+/* Lists */
+menu,
+ol,
+ul {
+  padding: 0 0 0 2rem;
+}
+
+/* Selection Colors */
+::-moz-selection {
+  background: #444444;
+  color: white;
+  text-shadow: none;
+}
+
+::selection {
+  background: #444444;
+  color: white;
+  text-shadow: none;
+}
+
+/* =============================================================================
+	Helper Classes
+/* ========================================================================== */
+/* Prefixed with tags to override default tag styling for these elemets if .button is added */
+button,
+.button,
+a.button,
+input.button {
+  display: inline-block;
+}
+
+/* Responsive Media Styles */
+.media {
+  /* Set width on this selector based on design and needs */
+}
+
+.media img,
+.media video,
+.media object,
+.media iframe {
+  width: 100%;
+  height: auto;
+}
+
+/* Clear Fix */
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
+/* Floats */
+.floatleft {
+  float: left;
+}
+
+.floatright {
+  float: right;
+}
+
+/* =============================================================================
+	Structural Styles, Media Queries & Page Styling
+/* ========================================================================== */
+/* Less than 320px but will apply at all sizes */
+#page-header {
+  border-bottom: 2px solid #d2d2d2;
+}
+#page-header .nav-icon {
+  margin: 35px 0 35px 3%;
+}
+
+/* Content */
+#content-wrap {
+  padding: 1rem;
+  background: #fff;
+}
+
+.article {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #444;
+}
+
+.article-header {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #444;
+}
+
+.article-title {
+  margin-bottom: 0;
+}
+.article-title a {
+  text-decoration: none;
+}
+
+.article-info {
+  font-size: .825em;
+}
+
+/* Sidebar */
+#page-sidebar {
+  background: #eee;
+  padding: 1rem;
+  -webkit-border-radius: 1rem;
+  border-radius: 1rem;
+}
+#page-sidebar > ul {
+  list-style: none;
+  padding: 0;
+}
+
+.search-form {
+  background: url("/content/themes/yeopress/images/black_lozenge.png");
+  overflow: hidden;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  -webkit-border-radius: 1rem;
+  border-radius: 1rem;
+}
+.search-form .input-wrap {
+  float: left;
+}
+.search-form .input-wrap label {
+  display: none;
+}
+.search-form .input-wrap input {
+  width: 100%;
+}
+.search-form .search {
+  width: 75%;
+  margin-right: 3%;
+}
+.search-form .submit {
+  width: 22%;
+}
+
+/* Footer */
+#page-footer {
+  text-transform: uppercase;
+  width: 100%;
+  color: white;
+  background: #1e1e1e;
+  margin: 0 auto;
+  padding: 280px 15%;
+}
+#page-footer p {
+  font-size: 3rem;
+  line-height: 200%;
+}
+#page-footer .social-copy {
+  float: left;
+  display: inline-block;
+  margin-top: 20px;
+}
+#page-footer .social-copy p {
+  font-size: 2rem;
+  line-height: 150%;
+}
+#page-footer .social-icons {
+  float: left;
+  margin-left: 80px;
+}
+#page-footer .social-icons .icon {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+/* 320px to 479px */
+/* 480px to 639px */
+@media only screen and (min-width: 480px) {
+  #page-header ul {
+    overflow: auto;
+  }
+  #page-header ul li {
+    float: left;
+  }
+}
+/* 640px to 767px */
+/* 768px to 1024px */
+@media only screen and (min-width: 768px) {
+  #content-wrap {
+    overflow: auto;
+  }
+
+  #page-content {
+    float: left;
+    width: 55%;
+  }
+
+  #page-sidebar {
+    float: right;
+    width: 40%;
+  }
+
+  .search-form .search {
+    width: 70%;
+  }
+  .search-form .submit {
+    width: 27%;
+  }
+}
+/* 1024px to 1534px */
+@media only screen and (min-width: 1024px) {
+  #page-wrap {
+    width: 80%;
+  }
+
+  #page-content {
+    width: 65%;
+    padding: 1rem;
+  }
+
+  #page-sidebar {
+    width: 31%;
+  }
+
+  #page-footer {
+    width: 100%;
+  }
+}
+/* More than 1534px */
+/* High PX Density */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
+  #page-header {
+    background: url("/content/themes/yeopress/images/black_lozenge_@2X.png");
+  }
+
+  .search-form {
+    background: url("/content/themes/yeopress/images/black_lozenge_@2X.png");
+  }
 }

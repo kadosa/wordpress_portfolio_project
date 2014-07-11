@@ -1,14 +1,14 @@
 /* ==========================================================================
 	Imports
 /* ========================================================================== */
-@import 'reset', 'variables';
+@import 'reset', 'variables', 'icons';
 
 /* ==========================================================================
 	Base
 /* ========================================================================== */
 html {
 	height: 100%;
-	font-size: 100%;
+	font-size: 62.5%;;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 }
@@ -25,7 +25,7 @@ body {
 	margin: 0;
 	font-size: $size_base;
 	line-height: 1.4;
-	background: #e1e1e1;
+	background: $bg_color;
 }
 /*	Apply to all elements. In a responsive design, this is almost always a good idea */
 * {
@@ -62,13 +62,15 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: $size_base * 1.5;
 }
 h1 {
-	font-size: $size_base * 2;
+	font-size: $size_base * 4.5;
+	line-height: 133%;
 }
 h2 {
-	font-size: $size_base * 1.5;
+	font-size: $size_base * 3;
 }
 h3 {
-	font-size: $size_base * 1.3;
+	font-size: $size_base * 2;
+	line-height: 150%;
 }
 h4 {
 	font-size: $size_base * 1.3;
@@ -90,6 +92,7 @@ pre {
 
 /* Paragraphs */
 p {
+	font-size: $size_base * 2;
 
 }
 
@@ -177,55 +180,15 @@ input.button:active {
 
 /* Less than 320px but will apply at all sizes */
 #page-wrap {
-	width: 90%;
-	margin: 0 auto;
-	-webkit-box-shadow: 0 0 $size_base * 3 0 #444;
-	box-shadow: 0 0 $size_base * 3 0 #444;
+
+
 }
 #page-header {
-	padding: $size_base;
-	background: url($images_dir + 'black_lozenge.png');
-}
-#page-logo {
-	color: $color_opposite;
+	//height: 112px;
+	border-bottom: 2px solid #d2d2d2;
 
-	a {
-		color: $color_opposite;
-	}
-}
-#page-header ul {
-	list-style: none;
-	padding: 0;
-
-	li {
-		cursor: pointer;
-		padding: $size_base / 2 $size_base;
-		margin: 0 0 $size_base / 2;
-
-		-webkit-border-radius: $size_base * 2;
-		border-radius: $size_base * 2;
-
-		background: #298cba; /* Old browsers */
-		background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI5OGNiYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxZDYzODUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-		background: -moz-linear-gradient(top,  #298cba 0%, #1d6385 100%); /* FF3.6+ */
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#298cba), color-stop(100%,#1d6385)); /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient(top,  #298cba 0%,#1d6385 100%); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(top,  #298cba 0%,#1d6385 100%); /* Opera 11.10+ */
-		background: -ms-linear-gradient(top,  #298cba 0%,#1d6385 100%); /* IE10+ */
-		background: linear-gradient(to bottom,  #298cba 0%,#1d6385 100%); /* W3C */
-
-		.lt-ie9 & {
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#298cba', endColorstr='#1d6385',GradientType=0 ); /* IE6-8 */
-		}
-
-		a {
-			color: #fff;
-			text-decoration: none;
-		}
-
-		&:hover a {
-			color: $color_body_copy;
-		}
+	.nav-icon {
+		margin: 35px 0 35px 3%;
 	}
 }
 
@@ -298,9 +261,36 @@ input.button:active {
 
 /* Footer */
 #page-footer {
-	width: 90%;
+	text-transform: uppercase;
+	width: 100%;
+	color: $color_footer_copy;
+	background: $footer_bg_color;
 	margin: 0 auto;
-	padding: $size_base 0;
+	padding: 280px $page_padding;
+
+	p {
+		font-size: 3rem;
+		line-height: 200%;
+	}
+
+	.social-copy {
+		float: left;
+		display: inline-block;
+		margin-top: 20px;
+		p {
+			font-size: 2rem;
+			line-height: 150%;
+		}
+	}
+
+	.social-icons {
+		float: left;
+		margin-left: 80px;
+		.icon {
+			display: inline-block;
+			margin-right: 15px;
+		}
+	}
 }
 
 /* 320px to 479px */
@@ -326,7 +316,7 @@ input.button:active {
 /* 768px to 1024px */
 @media only screen and (min-width: 768px) {
 	#page-header {
-		padding: $size_base  $size_base * 2;
+
 	}
 	#content-wrap {
 		overflow: auto;
@@ -362,7 +352,7 @@ input.button:active {
 		width: 31%;
 	}
 	#page-footer {
-		width: 80%;
+		width: 100%;
 	}
 }
 

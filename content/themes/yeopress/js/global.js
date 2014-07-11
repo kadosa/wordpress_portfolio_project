@@ -4,7 +4,14 @@ require.config({
         "jquery": "vendor/jquery/jquery",
         "backbone": "vendor/backbone/backbone",
         "underscore": "vendor/underscore/underscore",
+        "handlebars": "vendor/handlebars/handlebars.min",
         "text": "vendor/requirejs-text/text"
+    },
+
+    shim: {
+        'handlebars': {
+            exports: 'Handlebars'
+        }
     }
 });
 

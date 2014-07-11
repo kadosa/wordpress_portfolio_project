@@ -14,6 +14,7 @@ function theme_enqueue_scripts(){
 	wp_register_script('livereload', 'http://test.giles.com:35729/livereload.js?snipver=1', null, false, true);
 	wp_enqueue_script('livereload');
 
+	wp_enqueue_style('normalize', get_bloginfo('template_url') . '/css/normalize.css');
 	wp_enqueue_style('global', get_bloginfo('template_url') . '/css/global.css');
 }
 
