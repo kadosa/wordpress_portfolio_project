@@ -8,6 +8,7 @@
 /* Colors */
 /* Page sizes and margins and paddings */
 /* Font Sizes */
+/* line 21, ../scss/_reset.scss */
 article,
 aside,
 details,
@@ -31,43 +32,52 @@ summary {
   display: block;
 }
 
+/* line 26, ../scss/_reset.scss */
 audio,
 canvas,
 video {
   display: inline-block;
 }
 
+/* line 29, ../scss/_reset.scss */
 audio:not([controls]) {
   display: none;
   height: 0;
 }
 
+/* line 33, ../scss/_reset.scss */
 [hidden] {
   display: none;
 }
 
+/* line 36, ../scss/_reset.scss */
 abbr[title] {
   border-bottom: 1px dotted;
 }
 
+/* line 40, ../scss/_reset.scss */
 b,
 strong {
   font-weight: bold;
 }
 
+/* line 43, ../scss/_reset.scss */
 blockquote {
   margin: 1rem 2.5rem;
 }
 
+/* line 46, ../scss/_reset.scss */
 dfn {
   font-style: italic;
 }
 
+/* line 49, ../scss/_reset.scss */
 mark {
   background: white;
   color: #444444;
 }
 
+/* line 56, ../scss/_reset.scss */
 code,
 kbd,
 pre,
@@ -77,26 +87,31 @@ samp {
   font-size: 1rem;
 }
 
+/* line 61, ../scss/_reset.scss */
 pre {
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
+/* line 66, ../scss/_reset.scss */
 q {
   quotes: none;
 }
 
+/* line 70, ../scss/_reset.scss */
 q:before,
 q:after {
   content: '';
   content: none;
 }
 
+/* line 74, ../scss/_reset.scss */
 small {
   font-size: 80%;
 }
 
+/* line 78, ../scss/_reset.scss */
 sub,
 sup {
   font-size: 75%;
@@ -105,27 +120,33 @@ sup {
   vertical-align: baseline;
 }
 
+/* line 84, ../scss/_reset.scss */
 sup {
   top: -0.5rem;
 }
 
+/* line 87, ../scss/_reset.scss */
 sub {
   bottom: -0.25rem;
 }
 
+/* line 90, ../scss/_reset.scss */
 svg:not(:root) {
   overflow: hidden;
 }
 
+/* line 93, ../scss/_reset.scss */
 figure {
   margin: 0;
 }
 
+/* line 96, ../scss/_reset.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
+/* line 101, ../scss/_reset.scss */
 nav ul,
 nav ol {
   list-style: none;
@@ -134,6 +155,7 @@ nav ol {
   margin: 0;
 }
 
+/* line 107, ../scss/_reset.scss */
 img {
   border: 0;
   -ms-interpolation-mode: bicubic;
@@ -145,6 +167,7 @@ img {
 	Inlined to avoid required HTTP connection: h5bp.com/r
 /* ========================================================================== */
 @media print {
+  /* line 117, ../scss/_reset.scss */
   * {
     background: transparent !important;
     color: #000 !important;
@@ -152,47 +175,57 @@ img {
     text-shadow: none !important;
   }
 
+  /* line 124, ../scss/_reset.scss */
   a,
   a:visited {
     text-decoration: underline;
   }
 
+  /* line 127, ../scss/_reset.scss */
   a[href]:after {
     content: " (" attr(href) ")";
   }
 
+  /* line 130, ../scss/_reset.scss */
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
 
+  /* line 135, ../scss/_reset.scss */
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: "";
   }
 
+  /* line 139, ../scss/_reset.scss */
   pre,
   blockquote {
     border: 1px solid #444444;
     page-break-inside: avoid;
   }
 
+  /* line 143, ../scss/_reset.scss */
   thead {
     display: table-header-group;
   }
 
+  /* line 147, ../scss/_reset.scss */
   tr,
   img {
     page-break-inside: avoid;
   }
 
+  /* line 150, ../scss/_reset.scss */
   img {
     max-width: 100% !important;
   }
 
   @page {
     margin: 0.5cm;
-  }
+}
+
+  /* line 158, ../scss/_reset.scss */
   p,
   h2,
   h3 {
@@ -200,6 +233,7 @@ img {
     widows: 3;
   }
 
+  /* line 163, ../scss/_reset.scss */
   h2,
   h3 {
     page-break-after: avoid;
@@ -212,6 +246,7 @@ img {
 /* Colors */
 /* Page sizes and margins and paddings */
 /* Font Sizes */
+/* line 1, ../scss/_icons.scss */
 .social-icon {
   display: block;
   width: 104px;
@@ -220,20 +255,161 @@ img {
   text-align: center;
   background: #232323;
 }
+/* line 9, ../scss/_icons.scss */
 .social-icon:hover, .social-icon:active {
   background: #18e700;
 }
+/* line 13, ../scss/_icons.scss */
 .social-icon img {
   vertical-align: middle;
 }
 
+/* line 18, ../scss/_icons.scss */
 .icon {
   cursor: pointer;
+}
+
+/* line 23, ../scss/_icons.scss */
+.nav-icon img {
+  height: 25px;
+  width: 30px;
+}
+
+/* line 2, ../scss/_mixins.scss */
+#project-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 8, ../scss/project.scss */
+#project-container .project-thumbnail {
+  position: relative;
+  float: left;
+  width: 290px;
+  height: 290px;
+}
+/* line 15, ../scss/project.scss */
+#project-container .project-thumbnail .overlay {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  height: 100%;
+  width: 100;
+  background: #000;
+  opacity: 0;
+  z-index: 0;
+}
+/* line 25, ../scss/project.scss */
+#project-container .project-thumbnail .project-copy, #project-container .project-thumbnail .project-image {
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+/* line 33, ../scss/project.scss */
+#project-container .project-thumbnail .project-image {
+  height: 100%;
+  min-height: 260px;
+}
+/* line 38, ../scss/project.scss */
+#project-container .project-thumbnail .project-copy {
+  color: #fff;
+  text-align: center;
+  top: 50%;
+  width: 100%;
+  left: 50%;
+  /*transform*/
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+/* line 48, ../scss/project.scss */
+#project-container .project-thumbnail .project-copy h2, #project-container .project-thumbnail .project-copy h3 {
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+/* line 53, ../scss/project.scss */
+#project-container .project-thumbnail .project-copy h3 {
+  -webkit-transition-delay: 0.2s;
+  -moz-transition-delay: 0.2s;
+  -o-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+/* line 57, ../scss/project.scss */
+#project-container .project-thumbnail .project-copy h2 {
+  -webkit-transition-delay: 0.4s;
+  -moz-transition-delay: 0.4s;
+  -o-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+/* line 63, ../scss/project.scss */
+#project-container .project-thumbnail img {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all .4s ease-in-out;
+}
+/* line 69, ../scss/project.scss */
+#project-container .project-thumbnail.active img {
+  /*transform*/
+  -webkit-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  -o-transform: scale(1.3);
+  transform: scale(1.3);
+}
+/* line 79, ../scss/project.scss */
+#project-container .project-thumbnail.active .project-copy h2, #project-container .project-thumbnail.active .project-copy h3 {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+/* line 86, ../scss/project.scss */
+#project-container .project-thumbnail.inactive .overlay {
+  opacity: 0.3;
+  z-index: 2;
+}
+
+@font-face {
+  font-family: 'dinprolight';
+  src: url("../fonts/dinpro-light-webfont.eot");
+  src: url("../fonts/dinpro-light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/dinpro-light-webfont.woff") format("woff"), url("../fonts/dinpro-light-webfont.ttf") format("truetype"), url("../fonts/dinpro-light-webfont.svg#dinprolight") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'dinpro-regularregular';
+  src: url("../fonts/dinpro-regular-webfont.eot");
+  src: url("../fonts/dinpro-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/dinpro-regular-webfont.woff") format("woff"), url("../fonts/dinpro-regular-webfont.ttf") format("truetype"), url("../fonts/dinpro-regular-webfont.svg#dinpro-regularregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'dinproblack';
+  src: url("../fonts/dinpro-black-webfont.eot");
+  src: url("../fonts/dinpro-black-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/dinpro-black-webfont.woff") format("woff"), url("../fonts/dinpro-black-webfont.ttf") format("truetype"), url("../fonts/dinpro-black-webfont.svg#dinproblack") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* ==========================================================================
 	Base
 /* ========================================================================== */
+/* line 9, ../scss/global.scss */
 html {
   height: 100%;
   font-size: 62.5%;
@@ -241,6 +417,7 @@ html {
   -ms-text-size-adjust: 100%;
 }
 
+/* line 19, ../scss/global.scss */
 html,
 button,
 input,
@@ -250,15 +427,18 @@ textarea {
   color: #444444;
 }
 
+/* line 23, ../scss/global.scss */
 body {
   height: 100%;
   margin: 0;
+  font-family: dinprolight, Helvetica, sans-serif;
   font-size: 1rem;
   line-height: 1.4;
   background: white;
 }
 
 /*	Apply to all elements. In a responsive design, this is almost always a good idea */
+/* line 33, ../scss/global.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -268,20 +448,24 @@ body {
 /* ==========================================================================
 	Links
 /* ========================================================================== */
+/* line 42, ../scss/global.scss */
 a {
   color: #26527c;
   text-decoration: underline;
 }
 
+/* line 47, ../scss/global.scss */
 a:focus,
 a:hover {
   color: #08111a;
 }
 
+/* line 50, ../scss/global.scss */
 a:focus {
   outline: thin dotted;
 }
 
+/* line 54, ../scss/global.scss */
 a:active,
 a:hover {
   outline: 0;
@@ -291,35 +475,44 @@ a:hover {
 	Typography
 /* ========================================================================== */
 /* Headers */
+/* line 62, ../scss/global.scss */
 h1, h2, h3, h4, h5, h6 {
+  font-family: dinproblack, Helvetica, sans-serif;
+  font-weight: normal;
   margin: 0 0 1rem;
   line-height: 1.5rem;
 }
 
+/* line 68, ../scss/global.scss */
 h1 {
   font-size: 4.5rem;
   line-height: 133%;
 }
 
+/* line 72, ../scss/global.scss */
 h2 {
   font-size: 3rem;
 }
 
+/* line 75, ../scss/global.scss */
 h3 {
   font-size: 2rem;
   line-height: 150%;
 }
 
+/* line 79, ../scss/global.scss */
 h4 {
   font-size: 1.3rem;
   font-weight: normal;
 }
 
+/* line 83, ../scss/global.scss */
 h5, h6 {
   font-size: 1.1rem;
 }
 
 /* Content Block Elements */
+/* line 93, ../scss/global.scss */
 dl,
 menu,
 ol,
@@ -330,11 +523,13 @@ pre {
 }
 
 /* Paragraphs */
+/* line 98, ../scss/global.scss */
 p {
   font-size: 2rem;
 }
 
 /* Lists */
+/* line 106, ../scss/global.scss */
 menu,
 ol,
 ul {
@@ -342,12 +537,14 @@ ul {
 }
 
 /* Selection Colors */
+/* line 111, ../scss/global.scss */
 ::-moz-selection {
   background: #444444;
   color: white;
   text-shadow: none;
 }
 
+/* line 116, ../scss/global.scss */
 ::selection {
   background: #444444;
   color: white;
@@ -358,6 +555,7 @@ ul {
 	Helper Classes
 /* ========================================================================== */
 /* Prefixed with tags to override default tag styling for these elemets if .button is added */
+/* line 129, ../scss/global.scss */
 button,
 .button,
 a.button,
@@ -366,10 +564,12 @@ input.button {
 }
 
 /* Responsive Media Styles */
+/* line 150, ../scss/global.scss */
 .media {
   /* Set width on this selector based on design and needs */
 }
 
+/* line 156, ../scss/global.scss */
 .media img,
 .media video,
 .media object,
@@ -379,19 +579,23 @@ input.button {
 }
 
 /* Clear Fix */
+/* line 164, ../scss/global.scss */
 .clearfix:before, .clearfix:after {
   content: " ";
   display: table;
 }
+/* line 168, ../scss/global.scss */
 .clearfix:after {
   clear: both;
 }
 
 /* Floats */
+/* line 174, ../scss/global.scss */
 .floatleft {
   float: left;
 }
 
+/* line 177, ../scss/global.scss */
 .floatright {
   float: right;
 }
@@ -400,53 +604,64 @@ input.button {
 	Structural Styles, Media Queries & Page Styling
 /* ========================================================================== */
 /* Less than 320px but will apply at all sizes */
+/* line 190, ../scss/global.scss */
 #page-header {
   border-bottom: 2px solid #d2d2d2;
 }
+/* line 194, ../scss/global.scss */
 #page-header .nav-icon {
   margin: 35px 0 35px 3%;
 }
 
 /* Content */
+/* line 200, ../scss/global.scss */
 #content-wrap {
   padding: 1rem;
   background: #fff;
 }
 
+/* line 204, ../scss/global.scss */
 .article {
   margin-bottom: 1rem;
   border-bottom: 1px solid #444;
 }
 
+/* line 208, ../scss/global.scss */
 .article-header {
   margin-bottom: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #444;
 }
 
+/* line 213, ../scss/global.scss */
 .article-title {
   margin-bottom: 0;
 }
+/* line 216, ../scss/global.scss */
 .article-title a {
   text-decoration: none;
 }
 
+/* line 220, ../scss/global.scss */
 .article-info {
   font-size: .825em;
 }
 
 /* Sidebar */
+/* line 225, ../scss/global.scss */
 #page-sidebar {
   background: #eee;
   padding: 1rem;
   -webkit-border-radius: 1rem;
   border-radius: 1rem;
 }
+/* line 232, ../scss/global.scss */
 #page-sidebar > ul {
   list-style: none;
   padding: 0;
 }
 
+/* line 238, ../scss/global.scss */
 .search-form {
   background: url("/content/themes/yeopress/images/black_lozenge.png");
   overflow: hidden;
@@ -455,24 +670,30 @@ input.button {
   -webkit-border-radius: 1rem;
   border-radius: 1rem;
 }
+/* line 247, ../scss/global.scss */
 .search-form .input-wrap {
   float: left;
 }
+/* line 250, ../scss/global.scss */
 .search-form .input-wrap label {
   display: none;
 }
+/* line 253, ../scss/global.scss */
 .search-form .input-wrap input {
   width: 100%;
 }
+/* line 257, ../scss/global.scss */
 .search-form .search {
   width: 75%;
   margin-right: 3%;
 }
+/* line 261, ../scss/global.scss */
 .search-form .submit {
   width: 22%;
 }
 
 /* Footer */
+/* line 267, ../scss/global.scss */
 #page-footer {
   text-transform: uppercase;
   width: 100%;
@@ -481,23 +702,28 @@ input.button {
   margin: 0 auto;
   padding: 280px 15%;
 }
+/* line 275, ../scss/global.scss */
 #page-footer p {
   font-size: 3rem;
   line-height: 200%;
 }
+/* line 280, ../scss/global.scss */
 #page-footer .social-copy {
   float: left;
   display: inline-block;
   margin-top: 20px;
 }
+/* line 284, ../scss/global.scss */
 #page-footer .social-copy p {
   font-size: 2rem;
   line-height: 150%;
 }
+/* line 290, ../scss/global.scss */
 #page-footer .social-icons {
   float: left;
   margin-left: 80px;
 }
+/* line 293, ../scss/global.scss */
 #page-footer .social-icons .icon {
   display: inline-block;
   margin-right: 15px;
@@ -506,9 +732,11 @@ input.button {
 /* 320px to 479px */
 /* 480px to 639px */
 @media only screen and (min-width: 480px) {
+  /* line 307, ../scss/global.scss */
   #page-header ul {
     overflow: auto;
   }
+  /* line 309, ../scss/global.scss */
   #page-header ul li {
     float: left;
   }
@@ -516,42 +744,51 @@ input.button {
 /* 640px to 767px */
 /* 768px to 1024px */
 @media only screen and (min-width: 768px) {
+  /* line 325, ../scss/global.scss */
   #content-wrap {
     overflow: auto;
   }
 
+  /* line 328, ../scss/global.scss */
   #page-content {
     float: left;
     width: 55%;
   }
 
+  /* line 332, ../scss/global.scss */
   #page-sidebar {
     float: right;
     width: 40%;
   }
 
+  /* line 337, ../scss/global.scss */
   .search-form .search {
     width: 70%;
   }
+  /* line 340, ../scss/global.scss */
   .search-form .submit {
     width: 27%;
   }
 }
 /* 1024px to 1534px */
 @media only screen and (min-width: 1024px) {
+  /* line 348, ../scss/global.scss */
   #page-wrap {
     width: 80%;
   }
 
+  /* line 351, ../scss/global.scss */
   #page-content {
-    width: 65%;
-    padding: 1rem;
+    width: 100%;
+    padding: 0 15%;
   }
 
+  /* line 355, ../scss/global.scss */
   #page-sidebar {
     width: 31%;
   }
 
+  /* line 358, ../scss/global.scss */
   #page-footer {
     width: 100%;
   }
@@ -559,10 +796,12 @@ input.button {
 /* More than 1534px */
 /* High PX Density */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
+  /* line 370, ../scss/global.scss */
   #page-header {
     background: url("/content/themes/yeopress/images/black_lozenge_@2X.png");
   }
 
+  /* line 373, ../scss/global.scss */
   .search-form {
     background: url("/content/themes/yeopress/images/black_lozenge_@2X.png");
   }

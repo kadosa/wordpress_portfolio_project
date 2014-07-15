@@ -1,7 +1,7 @@
 /* ==========================================================================
 	Imports
 /* ========================================================================== */
-@import 'reset', 'variables', 'icons';
+@import 'reset', 'variables', 'icons', 'project', 'fonts', 'mixins';
 
 /* ==========================================================================
 	Base
@@ -23,9 +23,11 @@ textarea {
 body {
 	height: 100%;
 	margin: 0;
+	font-family: dinprolight, Helvetica, sans-serif;
 	font-size: $size_base;
 	line-height: 1.4;
 	background: $bg_color;
+
 }
 /*	Apply to all elements. In a responsive design, this is almost always a good idea */
 * {
@@ -58,6 +60,8 @@ a:hover {
 /* ========================================================================== */
 /* Headers */
 h1, h2, h3, h4, h5, h6 {
+	font-family: dinproblack, Helvetica, sans-serif;
+	font-weight: normal;
 	margin: 0 0 $size_base;
 	line-height: $size_base * 1.5;
 }
@@ -345,8 +349,8 @@ input.button:active {
 		width: 80%;
 	}
 	#page-content {
-		width: 65%;
-		padding: $size_base;
+		width: 100%;
+		padding: 0 $page_padding;
 	}
 	#page-sidebar {
 		width: 31%;

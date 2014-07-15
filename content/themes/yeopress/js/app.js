@@ -6,23 +6,34 @@ define([
     'underscore', // lib/underscore/underscore
     'backbone', // lib/backbone/backbone
     'collection/projects',
+    'controller/app',
+    'model/app',
     'view/app'
-], function($, _, Backbone, ProjectCollection, AppView) {
+], function(
+    $,
+    _,
+    Backbone,
+    ProjectCollection,
+    AppController,
+    AppModel,
+    AppView) {
     'use strict';
     // Above we have passed in jQuery, Underscore and Backbone
     // They will not be accessible in the global scope
     //
     var App = {
+        appController: null,
         projects: null,
         appView: null,
         initialize: function() {
             _.bindAll(this, 'onSuccess');
+            AppController.initialize();
             this.projects = new ProjectCollection();
             this.projects.fetch({
                 success: this.onSuccess
             });
 
-            console.log('App initialized');
+            console.log('App initializssed');
         },
 
         onSuccess: function(projects) {
