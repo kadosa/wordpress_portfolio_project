@@ -1,5 +1,10 @@
 #FRAMEWORK
 
+- Set up file structure --- DONE
+- Set up Router
+- Listen to scroll to update router/application state
+
+
 
 
 #STRUCTURE
@@ -7,15 +12,16 @@
 ###HEADER
  - Header text based on location
  - Navbar links (probably using TweenMax.to scroll)
+ - Menu open / closed state
 
 
 
 ###PROJECTS
 
- - Manage active/deactivated projects on hover
- - Pull in data from WP
- - Set up data structure
- - Loop through projects
+ - Manage active/deactivated projects on hover --- DONE
+ - Pull in data from WP --- 50%
+ - Set up data structure --- 50%
+ - Loop through projects --- 50%
 
 ###WORK PAGE
 
@@ -38,13 +44,19 @@
  - Create overlay
  - Create hover/active states
  - Create open/close transition
+ - Menu rollover animation
  - Put video inside logo
+
+
+ ###LOGO
+
+ - Create video inside logo
 
 ###PROJECTS
 
- - Rollover states (zoom in, text transition)
- - Selected/deselected states styling
- - Created tiled layout
+ - Rollover states (zoom in, text transition) --- DONE
+ - Selected/deselected states styling --- DONE
+ - Created tiled layout --- DONE
 
 ###WORK PAGE
 

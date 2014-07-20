@@ -2,6 +2,7 @@
 	Imports
 /* ========================================================================== */
 @import 'reset', 'variables', 'icons', 'project', 'fonts', 'mixins';
+@import 'header';
 
 /* ==========================================================================
 	Base
@@ -70,7 +71,7 @@ h1 {
 	line-height: 133%;
 }
 h2 {
-	font-size: $size_base * 3;
+	font-size: $size_base * 3.5;
 }
 h3 {
 	font-size: $size_base * 2;
@@ -187,14 +188,8 @@ input.button:active {
 
 
 }
-#page-header {
-	//height: 112px;
-	border-bottom: 2px solid #d2d2d2;
 
-	.nav-icon {
-		margin: 35px 0 35px 3%;
-	}
-}
+
 
 /* Content */
 #content-wrap {
@@ -297,6 +292,31 @@ input.button:active {
 	}
 }
 
+/**
+ * OVERLAY
+ */
+
+.overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	z-index: 0;
+	visibility: hidden;
+	background: rgba(0,0,0,0.6);
+	@include transition(opacity, 0.3s ease-in-out);
+
+	&.active {
+		visibility: visible;
+		opacity: 1;
+		z-index:2;
+	}
+}
+
 /* 320px to 479px */
 @media only screen and (min-width: 320px) {
 
@@ -325,9 +345,9 @@ input.button:active {
 	#content-wrap {
 		overflow: auto;
 	}
-	#page-content {
-		float: left;
-		width: 55%;
+	#js-application {
+		width: 100%;
+		padding: 0;
 	}
 	#page-sidebar {
 		float: right;
@@ -348,9 +368,12 @@ input.button:active {
 	#page-wrap {
 		width: 80%;
 	}
-	#page-content {
+	#js-application {
 		width: 100%;
-		padding: 0 $page_padding;
+		#project-container {
+
+			padding: 0 $page_padding;
+		}
 	}
 	#page-sidebar {
 		width: 31%;

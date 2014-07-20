@@ -5,14 +5,27 @@ define([
     'backbone',
     'model/app',
     'view/thumbnail',
+    'view/header',
+    'view/footer',
+    'view/overlay',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
-    'text!templates/project/list.html',
+    'text!templates/app.html',
     'handlebars'
-], function($, _, Backbone, AppModel, ProjectThumbnailView, projectListTemplate, Handlebars) {
+], function(
+    $,
+    _,
+    Backbone,
+    AppModel,
+    ProjectThumbnailView,
+    HeaderView,
+    FooterView,
+    OverlayView,
+    template,
+    Handlebars) {
     'use strict';
     var ProjectListView = Backbone.View.extend({
-        el: $('#page-content'),
+        el: $('#js-application'),
 
         events: {
             'mouseleave .project-thumbnail': 'onMouseLeave'
@@ -29,13 +42,37 @@ define([
 
         render: function() {
 
-            var compiledTemplate = Handlebars.compile(projectListTemplate);
+            var compiledTemplate = Handlebars.compile(template);
             this.$el.append(compiledTemplate);
-            this.$projectContainer = this.$('#project-container');
+            this.createOverlay();
+            this.createHeaderView();
             this.createProjectThumbnailViews();
+            this.createFooterView();
+        },
+
+        createOverlay: function() {
+            this.overlayView = new OverlayView();
+            this.overlayView.render();
+            this.$el.append(this.overlayView.$el);
+            //this.$el.append('<div class="overlay"></div>');
+
+        },
+
+        createHeaderView: function() {
+            this.headerView = new HeaderView();
+            this.headerView.render();
+            this.$el.append(this.headerView.$el);
+        },
+
+        createFooterView: function() {
+            this.footerView = new FooterView();
+            this.footerView.render();
+            this.$el.append(this.footerView.$el);
         },
 
         createProjectThumbnailViews: function() {
+            this.$el.append('<div id="project-container"></div>');
+            this.$projectContainer = this.$('#project-container');
             this.collection.each(function(project) {
                 var thumbnailView = new ProjectThumbnailView({
                     model: project

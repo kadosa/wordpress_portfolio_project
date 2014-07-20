@@ -1,0 +1,104 @@
+#page-header {
+    border-bottom: 2px solid #d2d2d2;
+    height: 56px;
+    overflow: visible;
+
+    /**
+     * Menu icon
+     */
+    .nav-icon-container {
+        width: 30px;
+        height: 25px;
+        position: relative;
+        top: 0px;
+        margin: 18px 0 18px 3%;
+        cursor: pointer;
+
+        .line {
+            @include transition(all 280ms cubic-bezier(0.215,.61,.355,1));
+            position: absolute;
+            width: 30px;
+            height: 6px;
+            background-color: #000;
+            @include translate3d(0, 0, 0);
+
+            &.line01 {
+                @include transition-delay(195ms);
+                opacity: 1;
+            }
+
+            &.line02 {
+                top: 10px;
+                @include transition-delay(130ms);
+            }
+
+            &.line03 {
+                top: 20px;
+                @include transition-delay(65ms);
+            }
+
+            &.line04 {
+                top: 30px;
+                opacity: 0;
+                @include transition-delay(0ms);
+            }
+        }
+
+        &:hover {
+            .line {
+                @include translate3d(0, -10px, 0);
+            }
+
+            .line01 {
+                opacity: 0;
+            }
+
+            .line04 {
+                opacity: 1;
+            }
+        }
+    }
+
+    /**
+     * Dropdown menu
+     */
+    #menu {
+        position: absolute;
+        top: 0px;
+        background: #171717;
+        width: 100%;
+        height: 350px;
+        padding: 50px 0 160px $page_padding + 50px;
+        @include translate3d(0, -100%, 0);
+        @include transition(all 0.4s ease-in-out);
+    }
+
+    #navbar {
+        list-style-type: none;
+
+        .navitem {
+            padding: 65px 85px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+
+            a {
+                font-family: dinproblack, 'Helvetica Neue', Helvetica, sans-serif;
+                text-decoration: none;
+                color: #fff;
+                font-size: 5.5rem;
+            }
+
+            &:hover, &.active {
+                border-bottom: 12px solid rgba(255,255,255,1);
+            }
+        }
+    }
+
+    &.active {
+        #menu {
+            z-index: 3;
+            @include translate3d(0, 0, 0);
+
+        }
+    }
+}

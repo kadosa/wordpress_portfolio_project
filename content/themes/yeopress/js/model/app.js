@@ -6,7 +6,9 @@ define([
     'use strict';
     var AppModel = Backbone.Model.extend({
         defaults: {
-            name: 'Harry Potter'
+            menuOpen: false,
+            hoveredProject: null,
+            project: null
         }
     });
     // Return the model for the module

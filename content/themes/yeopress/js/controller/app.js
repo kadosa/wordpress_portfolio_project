@@ -17,8 +17,9 @@ define([
 
         initialize: function() {
             _.bindAll(this, 'onProjectSelected', 'onProjectHovered');
-            Backbone.on('project:selected', this.onProjectSelected);
-            Backbone.on('project:hovered', this.onProjectHovered);
+            this.listenTo(Backbone, 'project:selected', this.onProjectSelected);
+            this.listenTo(Backbone, 'project:hovered', this.onProjectHovered);
+            this.listenTo(Backbone, 'menu:toggled', this.onMenuToggled);
         },
 
         onProjectSelected: function(project) {
@@ -27,6 +28,12 @@ define([
 
         onProjectHovered: function(project) {
             AppModel.set('hoveredProject', project);
+        },
+
+        onMenuToggled: function() {
+            var menuOpen = AppModel.get('menuOpen');
+            AppModel.set('menuOpen', !menuOpen);
+            console.log(menuOpen);
         },
 
         getCurrentProject: function() {

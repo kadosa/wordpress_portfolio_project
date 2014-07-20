@@ -13,9 +13,3 @@
 		<?php wp_head() ?>
     </head>
     <body <?php body_class() ?>>
-		<header id="page-header">
-			<div class="nav-icon icon">
-            <img src="<?php echo get_bloginfo('template_url');?>/images/menu_icon.png" />
-            </div>
-		</header>
-		<div id="content-wrap">

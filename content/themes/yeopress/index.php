@@ -1,4 +1,4 @@
 <?php get_header() ?>
-<div id="page-content">
+<div id="js-application">
 </div>
 <?php  get_footer() ?>
