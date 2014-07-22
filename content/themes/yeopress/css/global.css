@@ -291,33 +291,34 @@ img {
   float: left;
   width: 290px;
   height: 290px;
+  cursor: pointer;
 }
-/* line 16, ../scss/project.scss */
-#project-container .project-thumbnail .overlay {
+/* line 17, ../scss/project.scss */
+#project-container .project-thumbnail .project-overlay {
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   position: relative;
   height: 100%;
-  width: 100;
+  width: 100%;
   background: #000;
   opacity: 0;
   z-index: 0;
 }
-/* line 26, ../scss/project.scss */
+/* line 27, ../scss/project.scss */
 #project-container .project-thumbnail .project-copy, #project-container .project-thumbnail .project-image {
   overflow: hidden;
   position: absolute;
   top: 0px;
   left: 0px;
 }
-/* line 34, ../scss/project.scss */
+/* line 35, ../scss/project.scss */
 #project-container .project-thumbnail .project-image {
   height: 100%;
   min-height: 260px;
 }
-/* line 39, ../scss/project.scss */
+/* line 40, ../scss/project.scss */
 #project-container .project-thumbnail .project-copy {
   overflow: visible;
   color: #fff;
@@ -331,7 +332,7 @@ img {
   -o-transform: translate3d(-50%, -50%, 0);
   transform: translate3d(-50%, -50%, 0);
 }
-/* line 49, ../scss/project.scss */
+/* line 50, ../scss/project.scss */
 #project-container .project-thumbnail .project-copy h2, #project-container .project-thumbnail .project-copy h3 {
   line-height: 3rem;
   margin: 0;
@@ -346,7 +347,7 @@ img {
   -o-transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-/* line 57, ../scss/project.scss */
+/* line 58, ../scss/project.scss */
 #project-container .project-thumbnail .project-copy h3 {
   font-family: dinprolight, Helvetica Neue, Helvetica, sans-serif;
   -webkit-transition-delay: 50ms;
@@ -354,14 +355,14 @@ img {
   -o-transition-delay: 50ms;
   transition-delay: 50ms;
 }
-/* line 62, ../scss/project.scss */
+/* line 63, ../scss/project.scss */
 #project-container .project-thumbnail .project-copy h2 {
   -webkit-transition-delay: 0;
   -moz-transition-delay: 0;
   -o-transition-delay: 0;
   transition-delay: 0;
 }
-/* line 66, ../scss/project.scss */
+/* line 67, ../scss/project.scss */
 #project-container .project-thumbnail .project-copy:after {
   content: "";
   position: absolute;
@@ -385,13 +386,13 @@ img {
   transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
   opacity: 0;
 }
-/* line 82, ../scss/project.scss */
+/* line 83, ../scss/project.scss */
 #project-container .project-thumbnail img {
   width: 100%;
   height: 100%;
   -webkit-transition: all .4s ease-in-out;
 }
-/* line 88, ../scss/project.scss */
+/* line 89, ../scss/project.scss */
 #project-container .project-thumbnail.active img {
   /*transform*/
   -webkit-transform: scale(1.3);
@@ -400,7 +401,7 @@ img {
   -o-transform: scale(1.3);
   transform: scale(1.3);
 }
-/* line 98, ../scss/project.scss */
+/* line 99, ../scss/project.scss */
 #project-container .project-thumbnail.active .project-copy h2, #project-container .project-thumbnail.active .project-copy h3 {
   opacity: 1;
   -webkit-transform: translate3d(0, 0, 0);
@@ -409,7 +410,7 @@ img {
   -o-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
-/* line 103, ../scss/project.scss */
+/* line 104, ../scss/project.scss */
 #project-container .project-thumbnail.active .project-copy:after {
   -webkit-transform: translate3d(-50%, -10px, 0);
   -moz-transform: translate3d(-50%, -10px, 0);
@@ -418,8 +419,8 @@ img {
   transform: translate3d(-50%, -10px, 0);
   opacity: 1;
 }
-/* line 111, ../scss/project.scss */
-#project-container .project-thumbnail.inactive .overlay {
+/* line 112, ../scss/project.scss */
+#project-container .project-thumbnail.inactive .project-overlay {
   opacity: 0.3;
   z-index: 2;
 }
@@ -553,27 +554,51 @@ img {
   transition: all 0.4s ease-in-out;
 }
 /* line 76, ../scss/header.scss */
+#page-header .email {
+  background: url("/content/themes/yeopress/images/email_icon.png") 0 0 no-repeat;
+  background-size: 32px 24px;
+  padding-left: 45px;
+}
+/* line 80, ../scss/header.scss */
+#page-header .email p {
+  color: #fff;
+  text-transform: uppercase;
+}
+/* line 86, ../scss/header.scss */
 #page-header #navbar {
   list-style-type: none;
 }
-/* line 79, ../scss/header.scss */
+/* line 89, ../scss/header.scss */
 #page-header #navbar .navitem {
   padding: 65px 85px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
+  position: relative;
+  cursor: pointer;
 }
-/* line 84, ../scss/header.scss */
+/* line 96, ../scss/header.scss */
 #page-header #navbar .navitem a {
   font-family: dinproblack, 'Helvetica Neue', Helvetica, sans-serif;
   text-decoration: none;
   color: #fff;
-  font-size: 5.5rem;
+  font-size: 4.5rem;
 }
-/* line 91, ../scss/header.scss */
-#page-header #navbar .navitem:hover, #page-header #navbar .navitem.active {
-  border-bottom: 12px solid white;
+/* line 104, ../scss/header.scss */
+#page-header #navbar .navitem:hover :after, #page-header #navbar .navitem.active :after {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 100%;
+  bottom: 0px;
+  background: #fff;
+  opacity: 1;
+  left: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
-/* line 98, ../scss/header.scss */
+/* line 123, ../scss/header.scss */
 #page-header.active #menu {
   z-index: 3;
   -webkit-transform: translate3d(0, 0, 0);
@@ -689,39 +714,43 @@ h5, h6 {
 }
 
 /* Content Block Elements */
-/* line 94, ../scss/global.scss */
+/* line 92, ../scss/global.scss */
 dl,
 menu,
-ol,
-ul,
 p,
 pre {
   margin: 0 0 1rem;
 }
 
 /* Paragraphs */
-/* line 99, ../scss/global.scss */
+/* line 97, ../scss/global.scss */
 p {
   font-size: 2rem;
 }
 
+/* line 102, ../scss/global.scss */
+strong, em {
+  font-family: dinproblack, Helvetica Neue, Helvetica, sans-serif;
+}
+
 /* Lists */
-/* line 107, ../scss/global.scss */
+/* line 109, ../scss/global.scss */
 menu,
 ol,
 ul {
-  padding: 0 0 0 2rem;
+  margin: 0;
+  padding: 0;
 }
 
 /* Selection Colors */
-/* line 112, ../scss/global.scss */
+/* line 115, ../scss/global.scss */
 ::-moz-selection {
   background: #444444;
   color: white;
   text-shadow: none;
 }
 
-/* line 117, ../scss/global.scss */
+/* line 120, ../scss/global.scss */
 ::selection {
   background: #444444;
   color: white;
@@ -732,7 +761,7 @@ ul {
 	Helper Classes
 /* ========================================================================== */
 /* Prefixed with tags to override default tag styling for these elemets if .button is added */
-/* line 130, ../scss/global.scss */
+/* line 133, ../scss/global.scss */
 button,
 .button,
 a.button,
@@ -741,12 +770,12 @@ input.button {
 }
 
 /* Responsive Media Styles */
-/* line 151, ../scss/global.scss */
+/* line 154, ../scss/global.scss */
 .media {
   /* Set width on this selector based on design and needs */
 }
 
-/* line 157, ../scss/global.scss */
+/* line 160, ../scss/global.scss */
 .media img,
 .media video,
 .media object,
@@ -756,23 +785,23 @@ input.button {
 }
 
 /* Clear Fix */
-/* line 165, ../scss/global.scss */
+/* line 168, ../scss/global.scss */
 .clearfix:before, .clearfix:after {
   content: " ";
   display: table;
 }
-/* line 169, ../scss/global.scss */
+/* line 172, ../scss/global.scss */
 .clearfix:after {
   clear: both;
 }
 
 /* Floats */
-/* line 175, ../scss/global.scss */
+/* line 178, ../scss/global.scss */
 .floatleft {
   float: left;
 }
 
-/* line 178, ../scss/global.scss */
+/* line 181, ../scss/global.scss */
 .floatright {
   float: right;
 }
@@ -782,54 +811,54 @@ input.button {
 /* ========================================================================== */
 /* Less than 320px but will apply at all sizes */
 /* Content */
-/* line 195, ../scss/global.scss */
+/* line 198, ../scss/global.scss */
 #content-wrap {
   padding: 1rem;
   background: #fff;
 }
 
-/* line 199, ../scss/global.scss */
+/* line 202, ../scss/global.scss */
 .article {
   margin-bottom: 1rem;
   border-bottom: 1px solid #444;
 }
 
-/* line 203, ../scss/global.scss */
+/* line 206, ../scss/global.scss */
 .article-header {
   margin-bottom: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #444;
 }
 
-/* line 208, ../scss/global.scss */
+/* line 211, ../scss/global.scss */
 .article-title {
   margin-bottom: 0;
 }
-/* line 211, ../scss/global.scss */
+/* line 214, ../scss/global.scss */
 .article-title a {
   text-decoration: none;
 }
 
-/* line 215, ../scss/global.scss */
+/* line 218, ../scss/global.scss */
 .article-info {
   font-size: .825em;
 }
 
 /* Sidebar */
-/* line 220, ../scss/global.scss */
+/* line 223, ../scss/global.scss */
 #page-sidebar {
   background: #eee;
   padding: 1rem;
   -webkit-border-radius: 1rem;
   border-radius: 1rem;
 }
-/* line 227, ../scss/global.scss */
+/* line 230, ../scss/global.scss */
 #page-sidebar > ul {
   list-style: none;
   padding: 0;
 }
 
-/* line 233, ../scss/global.scss */
+/* line 236, ../scss/global.scss */
 .search-form {
   background: url("/content/themes/yeopress/images/black_lozenge.png");
   overflow: hidden;
@@ -838,30 +867,30 @@ input.button {
   -webkit-border-radius: 1rem;
   border-radius: 1rem;
 }
-/* line 242, ../scss/global.scss */
+/* line 245, ../scss/global.scss */
 .search-form .input-wrap {
   float: left;
 }
-/* line 245, ../scss/global.scss */
+/* line 248, ../scss/global.scss */
 .search-form .input-wrap label {
   display: none;
 }
-/* line 248, ../scss/global.scss */
+/* line 251, ../scss/global.scss */
 .search-form .input-wrap input {
   width: 100%;
 }
-/* line 252, ../scss/global.scss */
+/* line 255, ../scss/global.scss */
 .search-form .search {
   width: 75%;
   margin-right: 3%;
 }
-/* line 256, ../scss/global.scss */
+/* line 259, ../scss/global.scss */
 .search-form .submit {
   width: 22%;
 }
 
 /* Footer */
-/* line 262, ../scss/global.scss */
+/* line 265, ../scss/global.scss */
 #page-footer {
   text-transform: uppercase;
   width: 100%;
@@ -870,28 +899,28 @@ input.button {
   margin: 0 auto;
   padding: 280px 207px;
 }
-/* line 270, ../scss/global.scss */
+/* line 273, ../scss/global.scss */
 #page-footer p {
   font-size: 3rem;
   line-height: 200%;
 }
-/* line 275, ../scss/global.scss */
+/* line 278, ../scss/global.scss */
 #page-footer .social-copy {
   float: left;
   display: inline-block;
   margin-top: 20px;
 }
-/* line 279, ../scss/global.scss */
+/* line 282, ../scss/global.scss */
 #page-footer .social-copy p {
   font-size: 2rem;
   line-height: 150%;
 }
-/* line 285, ../scss/global.scss */
+/* line 288, ../scss/global.scss */
 #page-footer .social-icons {
   float: left;
   margin-left: 80px;
 }
-/* line 288, ../scss/global.scss */
+/* line 291, ../scss/global.scss */
 #page-footer .social-icons .icon {
   display: inline-block;
   margin-right: 15px;
@@ -900,7 +929,7 @@ input.button {
 /**
  * OVERLAY
  */
-/* line 299, ../scss/global.scss */
+/* line 302, ../scss/global.scss */
 .overlay {
   position: fixed;
   width: 100%;
@@ -918,7 +947,7 @@ input.button {
   -o-transition: opacity, 0.3s ease-in-out;
   transition: opacity, 0.3s ease-in-out;
 }
-/* line 313, ../scss/global.scss */
+/* line 316, ../scss/global.scss */
 .overlay.active {
   visibility: visible;
   opacity: 1;
@@ -928,11 +957,11 @@ input.button {
 /* 320px to 479px */
 /* 480px to 639px */
 @media only screen and (min-width: 480px) {
-  /* line 327, ../scss/global.scss */
+  /* line 330, ../scss/global.scss */
   #page-header ul {
     overflow: auto;
   }
-  /* line 329, ../scss/global.scss */
+  /* line 332, ../scss/global.scss */
   #page-header ul li {
     float: left;
   }
@@ -940,54 +969,54 @@ input.button {
 /* 640px to 767px */
 /* 768px to 1024px */
 @media only screen and (min-width: 768px) {
-  /* line 345, ../scss/global.scss */
+  /* line 348, ../scss/global.scss */
   #content-wrap {
     overflow: auto;
   }
 
-  /* line 348, ../scss/global.scss */
+  /* line 351, ../scss/global.scss */
   #js-application {
     width: 100%;
     padding: 0;
   }
 
-  /* line 352, ../scss/global.scss */
+  /* line 355, ../scss/global.scss */
   #page-sidebar {
     float: right;
     width: 40%;
   }
 
-  /* line 357, ../scss/global.scss */
+  /* line 360, ../scss/global.scss */
   .search-form .search {
     width: 70%;
   }
-  /* line 360, ../scss/global.scss */
+  /* line 363, ../scss/global.scss */
   .search-form .submit {
     width: 27%;
   }
 }
 /* 1024px to 1534px */
 @media only screen and (min-width: 1024px) {
-  /* line 368, ../scss/global.scss */
+  /* line 371, ../scss/global.scss */
   #page-wrap {
     width: 80%;
   }
 
-  /* line 371, ../scss/global.scss */
+  /* line 374, ../scss/global.scss */
   #js-application {
     width: 100%;
   }
-  /* line 373, ../scss/global.scss */
+  /* line 376, ../scss/global.scss */
   #js-application #project-container {
     padding: 0 207px;
   }
 
-  /* line 378, ../scss/global.scss */
+  /* line 381, ../scss/global.scss */
   #page-sidebar {
     width: 31%;
   }
 
-  /* line 381, ../scss/global.scss */
+  /* line 384, ../scss/global.scss */
   #page-footer {
     width: 100%;
   }
@@ -995,12 +1024,12 @@ input.button {
 /* More than 1534px */
 /* High PX Density */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
-  /* line 393, ../scss/global.scss */
+  /* line 396, ../scss/global.scss */
   #page-header {
     background: url("/content/themes/yeopress/images/black_lozenge_@2X.png");
   }
 
-  /* line 396, ../scss/global.scss */
+  /* line 399, ../scss/global.scss */
   .search-form {
     background: url("/content/themes/yeopress/images/black_lozenge_@2X.png");
   }

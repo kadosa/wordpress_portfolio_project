@@ -17,7 +17,5 @@ require.config({
 
 require(['jquery', 'backbone', 'app'], function($, Backbone, App) {
     "use strict";
-    console.log('Working!!!!!!');
     App.initialize();
-    console.log(Backbone);
 });

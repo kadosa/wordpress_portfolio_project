@@ -5,6 +5,7 @@ define([
     'jquery', // lib/jquery/jquery
     'underscore', // lib/underscore/underscore
     'backbone', // lib/backbone/backbone
+    'router',
     'collection/projects',
     'controller/app',
     'model/app',
@@ -13,6 +14,7 @@ define([
     $,
     _,
     Backbone,
+    Router,
     ProjectCollection,
     AppController,
     AppModel,
@@ -33,15 +35,15 @@ define([
                 success: this.onSuccess
             });
 
-            console.log('App initializssed');
         },
 
         onSuccess: function(projects) {
-            console.log(projects);
             this.appView = new AppView({
                 'collection': this.projects
             });
             this.appView.render();
+            Router.start();
+
         }
     };
     // What we return here will be used by other modules

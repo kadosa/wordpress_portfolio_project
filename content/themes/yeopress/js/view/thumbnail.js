@@ -62,11 +62,6 @@ define([
 
         },
 
-        onMouseLeave: function(e) {
-            //console.log(e);
-            //Backbone.trigger
-        },
-
         removeHoverState: function() {
             this.$el.removeClass('active inactive');
         }

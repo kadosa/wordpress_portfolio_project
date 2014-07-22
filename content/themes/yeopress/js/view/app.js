@@ -8,6 +8,7 @@ define([
     'view/header',
     'view/footer',
     'view/overlay',
+    'view/project',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
     'text!templates/app.html',
@@ -21,6 +22,7 @@ define([
     HeaderView,
     FooterView,
     OverlayView,
+    ProjectView,
     template,
     Handlebars) {
     'use strict';
@@ -32,6 +34,8 @@ define([
         },
 
         projectThumbnailListView: [],
+
+        currentProjectView: null,
 
         currentHoveredProject: null,
 
@@ -83,6 +87,31 @@ define([
             }, this);
         },
 
+        createCurrentProjectView: function(currentProject) {
+            this.currentProjectView = new ProjectView({
+                model: currentProject
+            });
+            this.$el.append(this.currentProjectView.$el);
+            this.currentProjectView.render();
+        },
+
+        updateCurrentProjectView: function(currentProject) {
+            this.currentProjectView.model = currentProject;
+            this.currentProjectView.render();
+        },
+
+        hideCurrentProjectView: function() {
+            this.currentProjectView.out();
+        },
+
+        hideProjectContainer: function() {
+            this.$projectContainer.hide();
+        },
+
+        showProjectContainer: function() {
+            this.$projectContainer.show();
+        },
+
         onHover: function(e) {
             var project = this.collection.get($(e.currentTarget).data("id"));
             if (this.currentHoveredProject !== project) {
@@ -103,6 +132,28 @@ define([
                 Backbone.trigger('project:hovered', null);
                 thumbnailView.removeHoverState();
             });
+        },
+
+        /**
+         * When a new project is selected, or the current one is closed,
+         * kick off the page transitions.
+         *
+         * @param  {[type]} AppModel       [description]
+         * @param  {[type]} currentProject [description]
+         * @return {[type]}                [description]
+         */
+        onProjectChange: function(AppModel, currentProject) {
+            if (currentProject) {
+                this.hideProjectContainer();
+                if (!this.currentProjectView) {
+                    this.createCurrentProjectView(currentProject);
+                } else {
+                    this.updateCurrentProjectView(currentProject);
+                }
+            } else {
+                this.hideCurrentProjectView();
+                this.showProjectContainer();
+            }
         }
 
 

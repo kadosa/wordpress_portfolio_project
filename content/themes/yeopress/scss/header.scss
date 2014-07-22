@@ -73,6 +73,16 @@
         @include transition(all 0.4s ease-in-out);
     }
 
+    .email {
+        background: url($images_dir + 'email_icon.png') 0 0 no-repeat;
+        background-size: 32px 24px;
+        padding-left: 45px;
+        p {
+            color: #fff;
+            text-transform: uppercase;
+        }
+    }
+
     #navbar {
         list-style-type: none;
 
@@ -80,16 +90,31 @@
             padding: 65px 85px;
             border: 1px solid rgba(255,255,255,0.1);
             text-align: center;
+            position: relative;
+            cursor: pointer;
 
             a {
                 font-family: dinproblack, 'Helvetica Neue', Helvetica, sans-serif;
                 text-decoration: none;
                 color: #fff;
-                font-size: 5.5rem;
+                font-size: 4.5rem;
             }
 
             &:hover, &.active {
-                border-bottom: 12px solid rgba(255,255,255,1);
+                :after {
+                    position: absolute;
+                    content: "";
+                    height: 12px;
+                    width: 100%;
+                    bottom: 0px;
+                    background: #fff;
+                    opacity: 1;
+                    left: 0;
+                    @include transition(all 0.3s ease-in-out);
+
+
+                }
+
             }
         }
     }

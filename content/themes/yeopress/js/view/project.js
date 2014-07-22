@@ -9,8 +9,8 @@ define([
     'handlebars'
 ], function($, _, Backbone, projectListTemplate, Handlebars) {
     'use strict';
-    var ProjectListView = Backbone.View.extend({
-        el: $('#page-content'),
+    var ProjectView = Backbone.View.extend({
+        id: 'current-project',
         render: function() {
             var compiledTemplate = Handlebars.compile(projectListTemplate)(this.model.toJSON());
             // Append our compiled template to this Views "el"
