@@ -5,8 +5,9 @@ define([
     'jquery', // lib/jquery/jquery
     'underscore', // lib/underscore/underscore
     'backbone', // lib/backbone/backbone
+    'router',
     'model/app',
-], function($, _, Backbone, AppModel) {
+], function($, _, Backbone, Router, AppModel) {
     'use strict';
     // Above we have passed in jQuery, Underscore and Backbone
     // They will not be accessible in the global scope
@@ -20,6 +21,7 @@ define([
             this.listenTo(Backbone, 'project:selected', this.onProjectSelected);
             this.listenTo(Backbone, 'project:hovered', this.onProjectHovered);
             this.listenTo(Backbone, 'menu:toggled', this.onMenuToggled);
+            this.listenTo(Backbone, 'navitem:clicked', this.onNavItemClicked);
         },
 
         onProjectSelected: function(project) {

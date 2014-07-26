@@ -24,6 +24,7 @@ define([
 
         events: {
             'click .nav-icon-container': 'onMenuClick',
+            'click .navitem': 'onNavItemClick'
         },
 
         initialize: function() {
@@ -38,8 +39,12 @@ define([
             Backbone.trigger('menu:toggled');
         },
 
+        onNavItemClick: function(event) {
+            Backbone.trigger('navitem:clicked', $(event.currentTarget).data('id'));
+        },
+
         onMenuToggled: function(AppModel, isMenuOpen) {
-            isMenuOpen ? this.showMenu() : this.closeMenu()
+            isMenuOpen ? this.showMenu() : this.closeMenu();
         },
 
         showMenu: function() {
