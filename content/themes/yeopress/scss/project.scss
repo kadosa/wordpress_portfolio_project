@@ -5,6 +5,7 @@
 #project-container {
     @include clearfix;
     z-index: 1;
+    position: absolute;
 
     .project-thumbnail {
         position: relative;

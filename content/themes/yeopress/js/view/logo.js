@@ -7,7 +7,7 @@ define([
     'model/app',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
-    'text!templates/footer.html',
+    'text!templates/logo.html',
     'handlebars',
 
 ], function(
@@ -19,22 +19,20 @@ define([
     template,
     Handlebars) {
     'use strict';
-    var FooterView = Backbone.View.extend({
-        id: 'page-footer',
-        section: 'footer',
+    var LogoView = Backbone.View.extend({
+        id: 'logo',
 
         events: {
 
         },
 
         initialize: function() {
-            console.log(this.model.toJSON());
-            var compiledTemplate = Handlebars.compile(template)(this.model.toJSON());
+            var compiledTemplate = Handlebars.compile(template)();
             this.$el.append(compiledTemplate);
 
         }
 
     });
     // Our module now returns our view
-    return FooterView;
+    return LogoView;
 });

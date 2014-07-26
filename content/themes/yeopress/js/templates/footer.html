@@ -1,22 +1,28 @@
 <div id="about-section">
     <h1>Giles Watson. Art Director</h1>
-    <p>I like to make stuff people love. I’ve worked in some of the world’s best agencies, helping big brands do great things.
-    I’m traditional, digital and experiential. My mum’s proud.</p>
+    <p>{{about_page_copy.[0]}}</p>
 </div>
 <div id="social">
     <div class="social-copy">
-        <p><strong>email</strong> <span>gmswatson@gmail.com</span></p>
-        <p><strong>linkedin</strong> <span>uk.linkedin.com/gilesw</span></p>
+        <p><strong>email</strong> <a href="mailto:{{email_address.[0]}}"><span>{{email_address.[0]}}</span></a></p>
+        <p><strong>linkedin</strong> <a href="http://{{linkedin_address.[0]}}" target="_blank" title="Visit my Linkedin portfolio"><span>{{linkedin_address.[0]}}</span></a></p>
     </div>
     <div class="social-icons">
         <div class="icon social-icon">
-            <img src="images/behance_icon.png" />
+            <a href="{{behance.[0]}}" target="_blank" title="Visit my Behance portfolio">
+                <img src="images/behance_icon.png" />
+            </a>
+
         </div>
         <div class="icon social-icon">
-            <img src="images/instagram_icon.png" />
+            <a href="{{instagram.[0]}}" target="_blank" title="Check me out on Instagram">
+                <img src="images/instagram_icon.png" />
+            </a>
         </div>
         <div class="icon social-icon">
-            <img src="images/twitter_icon.png" />
+            <a href="{{twitter.[0]}}" target="_blank" title="Follow me on Twitter">
+                <img src="images/twitter_icon.png" />
+            </a>
         </div>
     </div>
 </div>

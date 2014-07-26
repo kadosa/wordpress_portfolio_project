@@ -12,4 +12,15 @@
 		<link rel="author" href="">
 		<?php wp_head() ?>
     </head>
+    <?php $args = array( 'post_type' => 'posts', 'posts_per_page' => -1 );
+        //$loop = new WP_Query( $args );
+        $posts = get_posts();
+        $about_page = get_page_by_title('About');
+        ?>
+    <script type="text/javascript">
+        var AppData = {};
+        AppData.aboutPage = <?php echo json_encode($about_page);?>;
+        AppData.projects = <?php echo json_encode($posts);?>;
+
+    </script>
     <body <?php body_class() ?>>

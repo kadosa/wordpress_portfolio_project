@@ -26,20 +26,44 @@ define([
     var App = {
         appController: null,
         projects: null,
+        pageData: {},
         appView: null,
         initialize: function() {
             _.bindAll(this, 'onSuccess');
             AppController.initialize();
+            this.onSuccess = _.after(2, this.onSuccess);
             this.projects = new ProjectCollection();
             this.projects.fetch({
                 success: this.onSuccess
             });
+            this.getPageData();
+        },
 
+        getPageData: function() {
+
+            $.ajax({
+                context: this,
+                type: "GET",
+                dataType: "json",
+                url: '?json=get_page&page_slug=About',
+                success: this.onAboutSuccess,
+                error: this.onPageError
+            });
+        },
+
+        onAboutSuccess: function(aboutData) {
+            this.pageData.about = aboutData.page.custom_fields;
+            this.onSuccess();
+        },
+
+        onPageError: function() {
+            console.log('json error');
         },
 
         onSuccess: function(projects) {
             this.appView = new AppView({
-                'collection': this.projects
+                'collection': this.projects,
+                'model': new Backbone.Model(this.pageData)
             });
             this.appView.render();
             Router.start();

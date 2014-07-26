@@ -9,10 +9,13 @@ define([
     'view/footer',
     'view/overlay',
     'view/project',
+    'view/logo',
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
     'text!templates/app.html',
-    'handlebars'
+    'handlebars',
+    'tweenlite',
+    'scrollto'
 ], function(
     $,
     _,
@@ -23,8 +26,10 @@ define([
     FooterView,
     OverlayView,
     ProjectView,
+    LogoView,
     template,
-    Handlebars) {
+    Handlebars,
+    TweenLite) {
     'use strict';
     var ProjectListView = Backbone.View.extend({
         el: $('#js-application'),
@@ -39,9 +44,13 @@ define([
 
         currentHoveredProject: null,
 
+        topOffset: null,
+
         initialize: function() {
-            _.bindAll(this,  'onMouseLeave');
+            _.bindAll(this, 'onMouseLeave');
             this.listenTo(AppModel, 'change:project', this.onProjectChange);
+            this.listenTo(Backbone, 'page:navigatedto', this.onPageNavigatedTo);
+            this.topOffset = $(window).height() - 100;
         },
 
         render: function() {
@@ -50,8 +59,16 @@ define([
             this.$el.append(compiledTemplate);
             this.createOverlay();
             this.createHeaderView();
+            this.createLogo();
             this.createProjectThumbnailViews();
             this.createFooterView();
+            this.setupWayPoints();
+        },
+
+        createLogo: function() {
+            this.logoView = new LogoView();
+            this.logoView.render();
+            this.$el.append(this.logoView.$el);
         },
 
         createOverlay: function() {
@@ -69,14 +86,22 @@ define([
         },
 
         createFooterView: function() {
-            this.footerView = new FooterView();
+            this.footerView = new FooterView({
+                model: new Backbone.Model(this.model.get('about'))
+            });
             this.footerView.render();
+            this.footerView.$el.css({
+                top: this.topOffset + this.$projectContainer.height()
+            });
             this.$el.append(this.footerView.$el);
         },
 
         createProjectThumbnailViews: function() {
             this.$el.append('<div id="project-container"></div>');
             this.$projectContainer = this.$('#project-container');
+            this.$projectContainer.css({
+                top: this.topOffset
+            });
             this.collection.each(function(project) {
                 var thumbnailView = new ProjectThumbnailView({
                     model: project
@@ -123,7 +148,7 @@ define([
         onMouseLeave: function(e) {
             if (!$(e.relatedTarget).hasClass('project-thumbnail') &&
                 !$(e.toElement).hasClass('project-thumbnail')) {
-                    this.removeHoverFromThumbnails();
+                this.removeHoverFromThumbnails();
             }
         },
 
@@ -154,8 +179,58 @@ define([
                 this.hideCurrentProjectView();
                 this.showProjectContainer();
             }
-        }
+        },
 
+        /**
+         * Navigate to the proper section.
+         * @param  {[type]} AppModel    [description]
+         * @param  {[type]} currentPage [description]
+         * @return {[type]}             [description]
+         */
+        onPageNavigatedTo: function(url) {
+            switch (url) {
+                case 'home':
+                    TweenLite.to(window, 0.4, {
+                        scrollTo: {
+                            y: 0
+                        },
+                        ease: Expo.easeOut
+                    });
+                    break;
+                case 'work':
+                    TweenLite.to(window, 0.4, {
+                        scrollTo: {
+                            y: this.$projectContainer.offset().top
+                        },
+                        ease: Expo.easeOut
+                    });
+                    break;
+                case 'about':
+                    TweenLite.to(window, 0.4, {
+                        scrollTo: {
+                            y: this.footerView.$el.offset().top
+                        },
+                        ease: Expo.easeOut
+                    });
+                    break;
+            }
+        },
+
+        setupWayPoints: function() {
+            this.footerView.$el.waypoint(function(direction) {
+                console.log('footer', direction);
+                if (direction === 'down' && AppModel.get('currentPage') !== 'about') {
+                    Backbone.trigger('page:scrolledto', 'about');
+                }
+            });
+
+            this.$projectContainer.waypoint(function(direction) {
+                console.log('work', direction);
+                if (AppModel.get('currentPage') !== 'work') {
+                    Backbone.trigger('page:scrolledto', 'work');
+                }
+            });
+        }
 
     });
     // Our module now returns our view

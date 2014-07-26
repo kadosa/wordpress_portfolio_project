@@ -31,6 +31,7 @@ define([
             _.bindAll(this, 'onMenuClick');
             this.listenTo(AppModel, 'change:menuOpen', this.onMenuToggled);
             this.listenTo(AppModel, 'change:hoveredProject', this.onHoveredProjectChange);
+            this.listenTo(AppModel, 'change:currentPage', this.onCurrentPageChange);
             var compiledTemplate = Handlebars.compile(template);
             this.$el.append(compiledTemplate);
         },
@@ -49,6 +50,11 @@ define([
 
         showMenu: function() {
             this.$el.addClass('active');
+        },
+
+        onCurrentPageChange: function(AppModel, currentPage) {
+            this.$('.navitem.active').removeClass('active');
+            $('li[data-id=' + currentPage).addClass('active');
         },
 
         closeMenu: function() {

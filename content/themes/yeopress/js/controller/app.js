@@ -22,6 +22,7 @@ define([
             this.listenTo(Backbone, 'project:hovered', this.onProjectHovered);
             this.listenTo(Backbone, 'menu:toggled', this.onMenuToggled);
             this.listenTo(Backbone, 'navitem:clicked', this.onNavItemClicked);
+            this.listenTo(Backbone, 'page:scrolledto', this.onPageScrolledTo);
         },
 
         onProjectSelected: function(project) {
@@ -48,6 +49,13 @@ define([
         onNavItemClicked: function(url) {
             Router.navigate('/' + url);
             this.onMenuToggled();
+            AppModel.set('currentPage', url);
+            Backbone.trigger('page:navigatedto', url);
+        },
+
+        onPageScrolledTo: function(url) {
+            Router.navigate('/' + url);
+            AppModel.set('currentPage', url);
         }
 
     });

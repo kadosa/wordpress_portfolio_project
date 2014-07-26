@@ -2,7 +2,7 @@
 	Imports
 /* ========================================================================== */
 @import 'reset', 'variables', 'icons', 'project', 'fonts', 'mixins';
-@import 'header';
+@import 'header', 'footer', 'logo';
 
 /* ==========================================================================
 	Base
@@ -261,39 +261,7 @@ input.button:active {
 	}
 }
 
-/* Footer */
-#page-footer {
-	text-transform: uppercase;
-	width: 100%;
-	color: $color_footer_copy;
-	background: $footer_bg_color;
-	margin: 0 auto;
-	padding: 280px $page_padding;
 
-	p {
-		font-size: 3rem;
-		line-height: 200%;
-	}
-
-	.social-copy {
-		float: left;
-		display: inline-block;
-		margin-top: 20px;
-		p {
-			font-size: 2rem;
-			line-height: 150%;
-		}
-	}
-
-	.social-icons {
-		float: left;
-		margin-left: 80px;
-		.icon {
-			display: inline-block;
-			margin-right: 15px;
-		}
-	}
-}
 
 /**
  * OVERLAY
